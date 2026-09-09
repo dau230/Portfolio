@@ -1,7 +1,8 @@
 const starterProjects = [
   { title: 'Project Atlas', category: 'Systems / Exploration', year: '2025', description: 'A first deep dive into designing systems that are useful, understandable, and built to grow.', image: '' },
   { title: 'The Build Log', category: 'Writing / Process', year: '2024', description: 'Notes, sketches, and lessons from learning how to turn a rough question into a working prototype.', image: '' },
-  { title: 'Signal & Noise', category: 'Research / Curiosity', year: '2024', description: 'An ongoing experiment in paying closer attention to the details hiding in plain sight.', image: '' }
+  { title: 'Signal & Noise', category: 'Research / Curiosity', year: '2024', description: 'An ongoing experiment in paying closer attention to the details hiding in plain sight.', image: '' },
+  { title: 'FYRE-Assignments', category: 'Software / GitHub', year: '2025', description: 'A collection of assignments and experiments built while developing practical software skills.', image: '', url: 'https://github.com/dau230/FYRE-Assignments' }
 ];
 const starterAchievements = [
   { title: 'Started at Lehigh University', category: 'Milestone', year: '2025', description: 'Joined the Rossin College of Engineering as a full-time student.' },
@@ -25,6 +26,12 @@ function renderProjects() {
     card.querySelector('.project-year').textContent = project.year;
     card.querySelector('h3').textContent = project.title;
     card.querySelector('.project-description').textContent = project.description;
+    const projectLink = card.querySelector('.project-link');
+    projectLink.href = project.url || '#contact';
+    if (project.url) {
+      projectLink.target = '_blank';
+      projectLink.rel = 'noreferrer';
+    }
     if (project.image) {
       image.src = project.image;
       image.alt = `${project.title} preview`;
