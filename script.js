@@ -1,8 +1,5 @@
 const starterProjects = [
-  { title: 'Project Atlas', category: 'Systems / Exploration', year: '2025', description: 'A first deep dive into designing systems that are useful, understandable, and built to grow.', image: '' },
-  { title: 'The Build Log', category: 'Writing / Process', year: '2024', description: 'Notes, sketches, and lessons from learning how to turn a rough question into a working prototype.', image: '' },
-  { title: 'Signal & Noise', category: 'Research / Curiosity', year: '2024', description: 'An ongoing experiment in paying closer attention to the details hiding in plain sight.', image: '' },
-  { title: 'FYRE-Assignments', category: 'Software / GitHub', year: '2025', description: 'A collection of assignments and experiments built while developing practical software skills.', image: '', url: 'https://github.com/dau230/FYRE-Assignments' }
+  { title: 'FYRE-Assignments', category: 'Software / GitHub', year: '2026', description: 'A collection of assignments and experiments built while developing practical software skills.', image: '', url: 'https://github.com/dau230/FYRE-Assignments' }
 ];
 const starterAchievements = [
   { title: 'Started at Lehigh University', category: 'Milestone', year: '2025', description: 'Joined the Rossin College of Engineering as a full-time student.' },
@@ -10,7 +7,7 @@ const starterAchievements = [
 ];
 
 const load = (key, fallback) => JSON.parse(localStorage.getItem(key) || 'null') || fallback;
-let projects = load('daniel-projects', starterProjects);
+let projects = starterProjects;
 let achievements = load('daniel-achievements', starterAchievements);
 
 function renderProjects() {
@@ -58,30 +55,6 @@ function escapeHtml(value) {
   div.textContent = value;
   return div.innerHTML;
 }
-
-const panel = document.querySelector('.editor-panel');
-const overlay = document.querySelector('.editor-overlay');
-function toggleEditor(open) {
-  panel.classList.toggle('open', open);
-  panel.setAttribute('aria-hidden', String(!open));
-  overlay.hidden = !open;
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-document.querySelectorAll('.edit-trigger').forEach((button) => button.addEventListener('click', () => toggleEditor(true)));
-document.querySelector('.close-editor').addEventListener('click', () => toggleEditor(false));
-overlay.addEventListener('click', () => toggleEditor(false));
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') toggleEditor(false); });
-
-document.querySelector('#achievement-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  achievements.push({ title: data.get('title'), description: data.get('description'), category: data.get('category'), year: data.get('year') });
-  localStorage.setItem('daniel-achievements', JSON.stringify(achievements));
-  renderAchievements();
-  event.currentTarget.reset();
-  toggleEditor(false);
-  document.querySelector('#achievements').scrollIntoView({ behavior: 'smooth' });
-});
 
 renderProjects();
 renderAchievements();

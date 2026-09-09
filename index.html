@@ -18,7 +18,6 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="button button-dark edit-trigger" type="button"><span class="icon">✦</span> Edit portfolio</button>
   </header>
 
   <main id="top">
@@ -38,7 +37,7 @@
       </div>
     </section>
 
-    <div class="ticker" aria-label="Areas of interest"><div class="ticker-track"><span>Computer engineering</span><b>✳</b><span>Product thinking</span><b>✳</b><span>Creative problem solving</span><b>✳</b><span>Computer engineering</span><b>✳</b><span>Product thinking</span><b>✳</b><span>Creative problem solving</span></div></div>
+    <div class="ticker" aria-label="Areas of interest"><div class="ticker-track"><span>Mechanical engineering</span><b>✳</b><span>Product thinking</span><b>✳</b><span>Creative problem solving</span><b>✳</b><span>Mechanical engineering</span><b>✳</b><span>Product thinking</span><b>✳</b><span>Creative problem solving</span></div></div>
 
     <section class="work-section section-wrap" id="work">
       <div class="section-heading"><div><p class="eyebrow">Selected work <span class="blue-line"></span></p><h2>Things I’ve made<br><em>so far.</em></h2></div><p class="section-note">A growing collection of projects, experiments, and small wins. <span class="hand-arrow">↘</span></p></div>
@@ -54,19 +53,6 @@
 
     <section class="contact-section section-wrap" id="contact"><div class="contact-kicker">Have an idea, question, or opportunity?</div><h2>Let’s make something<br><em>worth remembering.</em></h2><a class="contact-email" href="https://www.linkedin.com/in/daniel-urias-b9227333b/" target="_blank" rel="noreferrer">Connect on LinkedIn <span>↗</span></a><div class="contact-footer"><span>Open to conversations & collaborations</span><span>© 2025 Daniel Urias</span></div></section>
   </main>
-
-  <div class="editor-overlay" hidden></div>
-  <aside class="editor-panel" aria-label="Portfolio editor" aria-hidden="true">
-    <div class="editor-header"><div><p class="eyebrow">Portfolio editor</p><h2>Keep it current.</h2></div><button class="close-editor" type="button" aria-label="Close editor">×</button></div>
-    <p class="editor-help">Add an achievement. Project entries are managed in <code>script.js</code>.</p>
-    <form class="editor-form" id="achievement-form">
-      <label>Achievement<input name="title" required placeholder="e.g. Dean's List"></label>
-      <label>Details<textarea name="description" required rows="3" placeholder="Add a little context..."></textarea></label>
-      <div class="form-row"><label>Type<input name="category" required placeholder="Milestone"></label><label>Year<input name="year" required placeholder="2025"></label></div>
-      <button class="button button-blue" type="submit">Add achievement <span>↗</span></button>
-    </form>
-    <div class="editor-footnote">Your entries live locally on this device. Exporting to a public site later is as simple as moving them into the starter data in <code>script.js</code>.</div>
-  </aside>
 
   <template id="project-template"><article class="project-card"><div class="project-image"><img alt=""><div class="project-index"></div><span class="image-placeholder">✦</span></div><div class="project-meta"><div><p class="project-category"></p><h3></h3></div><span class="project-year"></span></div><p class="project-description"></p><a class="project-link" href="#contact">View project <span>↗</span></a></article></template>
   <script src="script.js"></script>
