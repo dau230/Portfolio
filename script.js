@@ -72,33 +72,6 @@ document.querySelector('.close-editor').addEventListener('click', () => toggleEd
 overlay.addEventListener('click', () => toggleEditor(false));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') toggleEditor(false); });
 
-document.querySelectorAll('.tab').forEach((tab) => tab.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach((item) => item.classList.remove('active'));
-  tab.classList.add('active');
-  document.querySelector('#project-form').hidden = tab.dataset.tab !== 'project';
-  document.querySelector('#achievement-form').hidden = tab.dataset.tab !== 'achievement';
-}));
-
-document.querySelector('#project-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const data = new FormData(form);
-  const file = data.get('image');
-  const save = (image) => {
-    projects.push({ title: data.get('title'), description: data.get('description'), category: data.get('category'), year: data.get('year'), image });
-    localStorage.setItem('daniel-projects', JSON.stringify(projects));
-    renderProjects();
-    form.reset();
-    toggleEditor(false);
-    document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
-  };
-  if (file && file.size) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => save(reader.result));
-    reader.readAsDataURL(file);
-  } else save('');
-});
-
 document.querySelector('#achievement-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
